@@ -1,5 +1,5 @@
-# Binaries
-plow
+# Binaries (in root directory only)
+/plow
 *.exe
 *.exe~
 *.dll
