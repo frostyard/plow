@@ -29,9 +29,9 @@ func (s *Signer) SignRelease(distDir string) error {
 	releaseGpgPath := filepath.Join(distDir, "Release.gpg")
 	inReleasePath := filepath.Join(distDir, "InRelease")
 
-	// Remove old signatures
-	os.Remove(releaseGpgPath)
-	os.Remove(inReleasePath)
+	// Remove old signatures (ignore errors, files may not exist)
+	_ = os.Remove(releaseGpgPath)
+	_ = os.Remove(inReleasePath)
 
 	// Create detached signature (Release.gpg)
 	if err := s.signDetached(releasePath, releaseGpgPath); err != nil {

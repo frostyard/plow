@@ -158,14 +158,21 @@ func (r *Repository) generatePackagesForArch(dist, comp, arch string) error {
 	if err != nil {
 		return fmt.Errorf("create Packages.gz: %w", err)
 	}
+
 	gzWriter := gzip.NewWriter(gzFile)
 	if _, err := gzWriter.Write([]byte(content.String())); err != nil {
-		gzWriter.Close()
-		gzFile.Close()
+		_ = gzWriter.Close()
+		_ = gzFile.Close()
 		return fmt.Errorf("write Packages.gz: %w", err)
 	}
-	gzWriter.Close()
-	gzFile.Close()
+
+	if err := gzWriter.Close(); err != nil {
+		_ = gzFile.Close()
+		return fmt.Errorf("close gzip writer: %w", err)
+	}
+	if err := gzFile.Close(); err != nil {
+		return fmt.Errorf("close Packages.gz: %w", err)
+	}
 
 	// Generate Packages.xz (using xz command)
 	xzPath := packagesPath + ".xz"
@@ -314,7 +321,7 @@ func newReleaseFile(fullPath, relPath string) (releaseFile, error) {
 	if err != nil {
 		return releaseFile{}, err
 	}
-	defer f.Close()
+	defer f.Close() //nolint:errcheck // Read-only file, close error is not critical
 
 	stat, err := f.Stat()
 	if err != nil {
@@ -344,17 +351,17 @@ func copyFile(src, dst string) error {
 	if err != nil {
 		return err
 	}
-	defer in.Close()
+	defer in.Close() //nolint:errcheck // Read-only file, close error is not critical
 
 	out, err := os.Create(dst)
 	if err != nil {
 		return err
 	}
-	defer out.Close()
 
 	if _, err := io.Copy(out, in); err != nil {
+		_ = out.Close()
 		return err
 	}
 
-	return out.Sync()
+	return out.Close()
 }

@@ -51,7 +51,7 @@ func Parse(path string) (*Package, error) {
 	if err != nil {
 		return nil, fmt.Errorf("open deb: %w", err)
 	}
-	defer f.Close()
+	defer f.Close() //nolint:errcheck // Read-only file, close error is not critical
 
 	// Get file size and checksums
 	stat, err := f.Stat()
@@ -125,7 +125,7 @@ func extractControl(r io.Reader, archiveName string) ([]byte, error) {
 		if err != nil {
 			return nil, fmt.Errorf("open gzip: %w", err)
 		}
-		defer gzr.Close()
+		defer gzr.Close() //nolint:errcheck // Decompression complete, close error is not critical
 		tarReader = tar.NewReader(gzr)
 	case strings.HasSuffix(archiveName, ".xz"):
 		// For xz, we'll shell out since Go doesn't have native xz support
@@ -173,15 +173,18 @@ func extractControlFromXz(data []byte) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer os.Remove(tmpFile.Name())
+	tmpName := tmpFile.Name()
+	defer os.Remove(tmpName) //nolint:errcheck // Best effort cleanup
 
 	if _, err := tmpFile.Write(data); err != nil {
-		tmpFile.Close()
+		_ = tmpFile.Close()
 		return nil, err
 	}
-	tmpFile.Close()
+	if err := tmpFile.Close(); err != nil {
+		return nil, err
+	}
 
-	return extractControlWithCmd("xz", []string{"-dk", "-c", tmpFile.Name()})
+	return extractControlWithCmd("xz", []string{"-dk", "-c", tmpName})
 }
 
 func extractControlFromZstd(data []byte) ([]byte, error) {
@@ -189,15 +192,18 @@ func extractControlFromZstd(data []byte) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer os.Remove(tmpFile.Name())
+	tmpName := tmpFile.Name()
+	defer os.Remove(tmpName) //nolint:errcheck // Best effort cleanup
 
 	if _, err := tmpFile.Write(data); err != nil {
-		tmpFile.Close()
+		_ = tmpFile.Close()
 		return nil, err
 	}
-	tmpFile.Close()
+	if err := tmpFile.Close(); err != nil {
+		return nil, err
+	}
 
-	return extractControlWithCmd("zstd", []string{"-d", "-c", tmpFile.Name()})
+	return extractControlWithCmd("zstd", []string{"-d", "-c", tmpName})
 }
 
 func extractControlWithCmd(cmd string, args []string) ([]byte, error) {
