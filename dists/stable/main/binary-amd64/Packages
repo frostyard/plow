@@ -12,6 +12,20 @@ SHA1: 7f913b07f248a6fe2e55155f03d7193b4465ffe4
 SHA256: c4b57a078ce7b2fe8cfa90308258b851512c7c544d9c75d48c7a6f3ba15381d7
 Description: no description given
 
+Package: frostyard-chairlift
+Version: 0.1.1
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 7653
+Priority: optional
+Homepage: https://github.com/frostyard/chairlift
+Filename: pool/main/f/frostyard-chairlift/frostyard-chairlift_0.1.1_amd64.deb
+Size: 3401680
+MD5sum: a0bc8ef127f3520ab6cbdd14f9a6ba3a
+SHA1: 5993ad015c848831fc3e81a1d2ba3885335e66ac
+SHA256: 93b892b63c27296f64a1671fc404d6402a5a17a4ee35510032291b7f39a9690e
+Description: no description given
+
 Package: nbc
 Version: 0.13.1
 Architecture: amd64
