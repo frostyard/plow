@@ -1,0 +1,14 @@
+Package: nbc
+Version: 0.13.1
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 11099
+Priority: optional
+Homepage: https://github.com/frostyard/nbc
+Filename: pool/main/n/nbc/nbc_0.13.1_amd64.deb
+Size: 4506518
+MD5sum: 53b0ffb0abe27ea880f74e58768bb4f3
+SHA1: 8711b881cbebf7142fe85a2478c12cd8d7cc10e1
+SHA256: 105260289b8ead03686659e72e67297ef32b6302129b5d9bfd1bf5988a204840
+Description: no description given
+
