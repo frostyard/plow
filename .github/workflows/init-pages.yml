@@ -25,37 +25,32 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: "1.25"
+          go-version: "1.22"
 
       - name: Build plow
-        run: go build -o plow ./cmd/plow
+        run: |
+          go build -o plow ./cmd/plow
+          # Move binary outside of repo so it survives git operations
+          cp plow /tmp/plow
 
       - name: Create gh-pages branch
         run: |
           # Create orphan branch
           git checkout --orphan gh-pages
-
-          # Remove all files
+          
+          # Remove all tracked files
           git rm -rf . || true
-
+          
+          # Clean untracked files too
+          git clean -fd || true
+          
           # Create directory structure with plow
-          ./plow init
-
+          /tmp/plow init
+          
           # Create .nojekyll to prevent Jekyll processing
           touch .nojekyll
-
-          # Commit
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "Initialize repository structure"
-
-          # Push
-          git push -f origin gh-pages
-
-      - name: Create index.html
-        run: |
-          git checkout gh-pages
+          
+          # Create index.html
           cat > index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="en">
@@ -73,7 +68,7 @@ jobs:
           <body>
             <h1>Frostyard APT Repository</h1>
             <p>This is the official Debian package repository for Frostyard projects.</p>
-
+            
             <h2>Quick Setup</h2>
             <pre><code># Add the GPG key
           curl -fsSL https://frostyard.github.io/plow/public.key | sudo gpg --dearmor -o /usr/share/keyrings/frostyard.gpg
@@ -87,13 +82,13 @@ jobs:
           # Update and install
           sudo apt update
           sudo apt install PACKAGE_NAME</code></pre>
-
+            
             <h2>Available Distributions</h2>
             <ul>
               <li><strong>stable</strong> - Production-ready releases</li>
               <li><strong>testing</strong> - Pre-release versions for testing</li>
             </ul>
-
+            
             <h2>Links</h2>
             <ul>
               <li><a href="https://github.com/frostyard/plow">Repository Manager (plow)</a></li>
@@ -102,7 +97,12 @@ jobs:
           </body>
           </html>
           EOF
-
-          git add index.html
-          git commit -m "Add index.html"
-          git push
+          
+          # Commit
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Initialize repository structure"
+          
+          # Push
+          git push -f origin gh-pages
