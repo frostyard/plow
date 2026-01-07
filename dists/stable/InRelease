@@ -8,32 +8,26 @@ Codename: stable
 Architectures: amd64
 Components: main
 Description: Frostyard Debian Repository
-Date: Wed, 07 Jan 2026 17:39:54 UTC
+Date: Wed, 07 Jan 2026 17:46:47 UTC
 MD5Sum:
- b0886e3068c4eaf687608930b5199f81             3951 main/binary-amd64/Packages
- 07c45e7eface0c4cfa68e96ac064c3a3             1164 main/binary-amd64/Packages.gz
- ccc5da3de7559adf44cded132f87e9bb             1200 main/binary-amd64/Packages.xz
+ 79be2b73ab301db1a6d583fe4f69390a             1619 main/binary-amd64/Packages
 SHA1:
- 4143a963cfcb8011a83b25f0178a91c281723c4b             3951 main/binary-amd64/Packages
- 0836c6b2b9552683f7bd80f077732ad9f0ad8b52             1164 main/binary-amd64/Packages.gz
- a500501e3421fdd69d0992eced5f083b9512cb99             1200 main/binary-amd64/Packages.xz
+ 038261a40800d6dc5a75da63c70dc79c7e5afa43             1619 main/binary-amd64/Packages
 SHA256:
- 82021b2905ef9579313884824c64653c3cbf9e71e69120d276570abbd9b087d2             3951 main/binary-amd64/Packages
- a48c2dbcdee90c26b301cb6f7796db3441b3f86058b5ae4abe704005eae7112b             1164 main/binary-amd64/Packages.gz
- 4f61ad7079b30974d5f7c0770118658ac8775edb86540a0d61b10d44cc319834             1200 main/binary-amd64/Packages.xz
+ 12316ff40da65bfaa07261916f647a4493624b85a57c47d4b19f2e1a3c03dd69             1619 main/binary-amd64/Packages
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmlemmoACgkQTeaiAW5i
-L5ceGxAAkmBFMe82p1ycvHX7Ze9x9i9midUu6anUiJQZUbIpWIu86uaELIwftV2D
-vNvLATMx3UtDH/6Y/vcCxYJTEswJptiCjpHm/YV9RYrHCM6sS1E/Ym4Fv/Lfe4BA
-K0Ivqlj8O+XP/VIg3BQslK9OT8NO0i8YO0clTwrUmEoLcKG3NxxkC6hL941J61VK
-hEeCiGY8RDuA3AANzXQQLIdhTFUc8KTcVyMOcrMWVRNLFW5Ydnmv8HJF/eJfezuK
-LVdXIBR7yjV8oifui8VVpH8WPOpWjL5iGl9LzCXy4UkIkqVCig2k0x2nihk8uhgQ
-OZVtsyVRyZMnbXIiCyD797gWXsgeWvb5vvElUj6nxxHs6njS8awanmcBe5+VdE3l
-d6d0fB0PDczY2ryh6mawHZgviKqvjQJGvm511y7fqe5EQvB3JCI5+UVdEYpA+t/8
-IJb4NaP2+96MV3UHf2LAJaQcjiHkd7k/sWA62YLr9bfQW5MIjmd0crvyN8v+yxLn
-r8ia2qP6kag/nUdWtDZf+f/hgq+DvW6pjtjeQbsXEb52EqmWwbNIbxEgG3Ssuc74
-/mNjrCrna1gJNN95TONQwxAz85ZoNj5v0w8+c1a1fgIWlrr/zps9DORYtjtuMjBZ
-Mq99lnCwAvEckI5KQC6MKQLYTDY/nqKCIs2q64FxqxzfEZi4DVc=
-=4joX
+iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmlenAcACgkQTeaiAW5i
+L5fX7g//buzdZG4ugSTM6GcasFGJijPvuTMlTJIej26batpKgKk0CphGwUyBBo2n
+wCfdTIyKCczs6asmfcgMrMkzeez3Oqui7gs5UpMiDoy3YZrAYgZRnKLMJ+YnpZXm
+lPQZg13be7uo0AI5m1g5mSk9sr0Aq+/S1hsth4doqizs1NymcCYIo5yM+gwT8ks7
+x6oCTcN04uenre9mJuuNHBRzT+qO4B2MrUZAboiI8d4eckcpcTNBkAC1vPHVMoU5
+O8P9NiyK+L1jOZjR5DME/XLNKE2dUcSv5bGQI9X9uDrYVqB+vglu2O0wVwNBDiqF
+mFLGOyWFq/H6tx/yFd0+NQ4x6qbRBlQC991h0MTuBgKBjN4A0C1tu6D4CDEUFIQ9
+W7siPWlYZX2aBbdH43oAZIk8QCvanBlENXoior2Mn7J2f3hs2pIwn60tbfRuKf1E
+Ok5aRTm1KW+CGq2wN+AxgLYdLCtlDhIqXQGn4AwRZDJZTryP4Y2i3w5h7KGqgLYo
+C9h93p08HmdsGae19+rUW2C2gRbcgXU8j5BGYuP+vy9NxCQbzNKHXIh4LhNlvLHv
+BDEggKplvx3SsRRgzynFKR2DTc6JcGhB3OdqYgG3Lyf0j438WFbr/NlwDM/V9pRJ
+wyvsmyuAQ2USSEa32t7Z2lNyvO+MW/f9sry7VEiNagilc6/+AdA=
+=Yexj
 -----END PGP SIGNATURE-----
