@@ -1,0 +1,15 @@
+Package: frostyard-chairlift
+Version: 0.1.3
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 7653
+Priority: optional
+Homepage: https://github.com/frostyard/chairlift
+Filename: pool/main/f/frostyard-chairlift/frostyard-chairlift_0.1.3_amd64.deb
+Size: 3401760
+MD5sum: c3bfa998d496dc95fe41bf27d0ab5074
+SHA1: 0bdbed4c33b6ec08abb998a0692dcf1e93570f1c
+SHA256: 599d05fb35766742661dab4b27df8e1c7549eaff670e0fc09333de96ede14441
+Description: System management tool for nbc/bootc installations.
+ Manage flatpaks, homebrew and system updates with a modern GTK4/Libadwaita interface.
+

@@ -8,26 +8,26 @@ Codename: stable
 Architectures: amd64
 Components: main
 Description: Frostyard Debian Repository
-Date: Wed, 07 Jan 2026 17:47:43 UTC
+Date: Wed, 07 Jan 2026 17:49:32 UTC
 MD5Sum:
- d41d8cd98f00b204e9800998ecf8427e                0 main/binary-amd64/Packages
+ aef6eba0fff4972c9aa921e58d7b79c7              608 main/binary-amd64/Packages
 SHA1:
- da39a3ee5e6b4b0d3255bfef95601890afd80709                0 main/binary-amd64/Packages
+ 48f728b3aacedf7669b26ac3f7da866aa5dd30e8              608 main/binary-amd64/Packages
 SHA256:
- e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855                0 main/binary-amd64/Packages
+ c2f1315fd6572716465d9491a6432ce69b009e30241910bc07cbe9e320225377              608 main/binary-amd64/Packages
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmlenD8ACgkQTeaiAW5i
-L5coqg/+L7em6SNU3APWru4ZI6Dxzds6g/y2mJ5viRQp09VDXswY+XbiLFaK+g7z
-+43aHMKpr5tSH4FfruDhU00rnt7S4ZPIG6WuH6vFRdY1bvRSjKbAHQ6YQqIi4HPd
-FfYxEnL5weUMDs61ZeDHM4dnM7WSg/5kkGYkZyVdNQSW+ad8L1aOXpoe9L6GQsyE
-0C3YCXhxZnKVquxy7Z53imRGMlCxRaz3hawBd7aaNMsuO8sdqfSTWB32QwB3ImC5
-KswURxIK8uLrh3RkN7xoZ83w3QmUaBlBu1zT6CdQdwHH+cEcO5iusePmsBw6y18A
-BtClNFFQJM1xzDndYC3lZz34SAzUXpzO5UoQce7yS/MVIenvK5UTZI14xQ5b8KjY
-JsRMa9J3H4crA0WOdM0IyNqFSKaCBDjNuhcRArncaR9KPr/6RD3RPsvGiZGww6Jb
-nQvBSx5sD6ggs1z/45OQdGEN3hcU82vvpCxq2MeZrYepqTsm/nlMfwrtuFAbtbkN
-5lM0ClOQDSUhgd0SQ+t1dwwGgtT6FHIEtSpTzOmYUAZe21yFDcDe9U9fbU72ZheO
-dBRQDaS3x6RVjV1fBKu7a0UG37Tfgjv3YX9RSPIAVek5fei0qMLIYXpgE7grsBpI
-gQHLaoR+FgmpR1VdxwlksKXGpWet6918QmvVQu30cCOTCKjou9o=
-=mOTa
+iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmlenKwACgkQTeaiAW5i
+L5fYwg/9GslWG2EToMiI8itjV9XKEa2oW+L9dsaCbM2dVLkGrpg0Ei5tK+WnZQjh
+sg841h6UigiyuuRWAes2bqxZScRAop/JiXBAXJT/yYeEG/kCeBAKShPlhV9CyXLi
+NPXd6/93mOLDKC3u0CSkHJXzZ3fJ6jkjpEnFIYlohOdVReUeyIK6WZVbVZb919cr
+pqjReMRScM3pQH2exY51SsQrT3fIGQur/56wSv4fY8kXU4TJNPsSvpWMRXq0E/Th
+vStSRC0Qn2pLfZah+M0ym4OkLti4GLhVeaiFa2njwXSiqjcj4WX7Ghrvk3aTCLIT
+hhZeI0DoxgO4XRZwStjSx28uGjUnn6t6q3dNxKkIgPY5010uzkTqpIKUcPy4WlwU
+Zdrb1xzGVGqVwM+PrTI1HnVfYg6spf6/1xmN+v385gcfLkaIKjNDS3Q+3RZLju3Y
+8KqON7Gv9mbTt+49Dm/P1gQubIz/Dz4w3kFyCgq9KM0Zq/OcWGdol2+59SUNSVrt
+36xuep5xYSlBEBsG+7p4ZWmDpNyxtndT1HmGPCJE0BJs6f2K37cMAK/l/PpibhcW
+C96c1bu+Bb4IXrbxFYyM7fHmpKrNta8ilfwBfRvntT0c5MF1g9dC9XC75uNx/vHL
+V4h8HBrvYF2JQKoflkYYJJTCLHfHC5bS7GN6WOLqEfdeuTmGKY0=
+=OycM
 -----END PGP SIGNATURE-----
