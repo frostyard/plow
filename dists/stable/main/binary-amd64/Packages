@@ -1,4 +1,18 @@
 Package: frostyard-chairlift
+Version: 0.1.2
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 7653
+Priority: optional
+Homepage: https://github.com/frostyard/chairlift
+Filename: pool/main/f/frostyard-chairlift/frostyard-chairlift_0.1.2_amd64.deb
+Size: 3401694
+MD5sum: c6bec02ff64a1c484e8c2b06a1a551c8
+SHA1: 82f4222041e5c62756d8f218d6b3b19f2458259f
+SHA256: 70d4a810d28e7dd760e2616652093adb44fce0c22b8899ab1ecb24d805847402
+Description: System management tool for nbc/bootc installations.
+
+Package: frostyard-chairlift
 Version: 0.1.1
 Architecture: amd64
 Maintainer: Brian Ketelsen <bketelsen@gmail.com>
