@@ -1,0 +1,145 @@
+name: Remove Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      package_name:
+        description: "Package name to remove (e.g., 'chairlift' or 'frostyard-nbc')"
+        required: true
+        type: string
+      distribution:
+        description: "Distribution to remove from (or 'all' for both)"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - stable
+          - testing
+
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: plow-publish
+      cancel-in-progress: false
+
+    steps:
+      - name: Validate package name
+        run: |
+          PACKAGE="${{ inputs.package_name }}"
+          if [[ ! "$PACKAGE" =~ ^[a-z0-9][a-z0-9.+-]+$ ]]; then
+            echo "Error: Invalid package name '$PACKAGE'"
+            echo "Package names must start with alphanumeric and contain only lowercase letters, digits, dots, plus, and hyphens."
+            exit 1
+          fi
+          echo "Package name validated: $PACKAGE"
+
+      - name: Download plow binary
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download --repo frostyard/plow --pattern 'plow_linux_amd64' --output plow || {
+            echo "Failed to download plow binary. Make sure a release exists in frostyard/plow."
+            exit 1
+          }
+          chmod +x plow
+          ./plow version
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          ssh-key: ${{ secrets.REPO_DEPLOY_KEY }}
+          path: repo
+          lfs: true
+
+      - name: Find and remove package
+        id: remove
+        run: |
+          PACKAGE="${{ inputs.package_name }}"
+          FIRST_LETTER="${PACKAGE:0:1}"
+          POOL_PATH="repo/pool/main/${FIRST_LETTER}/${PACKAGE}"
+
+          echo "Looking for package at: $POOL_PATH"
+
+          if [ ! -d "$POOL_PATH" ]; then
+            echo "Error: Package '$PACKAGE' not found in pool"
+            echo "Available packages:"
+            find repo/pool/main -mindepth 2 -maxdepth 2 -type d | sed 's|repo/pool/main/./||' | sort
+            exit 1
+          fi
+
+          echo "Found package directory:"
+          ls -la "$POOL_PATH"
+
+          echo "Removing package files..."
+          rm -rf "$POOL_PATH"
+
+          # Remove empty parent directory if needed
+          PARENT_DIR="repo/pool/main/${FIRST_LETTER}"
+          if [ -d "$PARENT_DIR" ] && [ -z "$(ls -A "$PARENT_DIR")" ]; then
+            rmdir "$PARENT_DIR"
+            echo "Removed empty parent directory: $PARENT_DIR"
+          fi
+
+          echo "removed=true" >> $GITHUB_OUTPUT
+
+      - name: Import GPG key
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 -d | gpg --batch --import
+
+          FINGERPRINT=$(gpg --list-secret-keys --with-colons 2>/dev/null | grep '^fpr' | head -1 | cut -d: -f10)
+          echo "Using GPG key fingerprint: $FINGERPRINT"
+          echo "${FINGERPRINT}:6:" | gpg --import-ownertrust
+
+      - name: Regenerate index and sign (stable)
+        if: inputs.distribution == 'all' || inputs.distribution == 'stable'
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          if [ -d "repo/dists/stable" ]; then
+            echo "Regenerating stable index..."
+            ./plow index --repo-root ./repo --dist stable
+            ./plow sign --repo-root ./repo --dist stable
+          else
+            echo "Stable distribution not found, skipping"
+          fi
+
+      - name: Regenerate index and sign (testing)
+        if: inputs.distribution == 'all' || inputs.distribution == 'testing'
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          if [ -d "repo/dists/testing" ]; then
+            echo "Regenerating testing index..."
+            ./plow index --repo-root ./repo --dist testing
+            ./plow sign --repo-root ./repo --dist testing
+          else
+            echo "Testing distribution not found, skipping"
+          fi
+
+      - name: Commit and push
+        working-directory: repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Remove package: ${{ inputs.package_name }}"
+            git push
+            echo "Package removed successfully!"
+          fi
+
+      - name: Summary
+        run: |
+          echo "## Package Removed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Package**: ${{ inputs.package_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Distribution**: ${{ inputs.distribution }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The package has been removed from the repository pool and the index has been regenerated." >> $GITHUB_STEP_SUMMARY
