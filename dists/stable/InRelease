@@ -8,26 +8,26 @@ Codename: stable
 Architectures: amd64
 Components: main
 Description: Frostyard Debian Repository
-Date: Wed, 07 Jan 2026 17:46:47 UTC
+Date: Wed, 07 Jan 2026 17:47:43 UTC
 MD5Sum:
- 79be2b73ab301db1a6d583fe4f69390a             1619 main/binary-amd64/Packages
+ d41d8cd98f00b204e9800998ecf8427e                0 main/binary-amd64/Packages
 SHA1:
- 038261a40800d6dc5a75da63c70dc79c7e5afa43             1619 main/binary-amd64/Packages
+ da39a3ee5e6b4b0d3255bfef95601890afd80709                0 main/binary-amd64/Packages
 SHA256:
- 12316ff40da65bfaa07261916f647a4493624b85a57c47d4b19f2e1a3c03dd69             1619 main/binary-amd64/Packages
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855                0 main/binary-amd64/Packages
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmlenAcACgkQTeaiAW5i
-L5fX7g//buzdZG4ugSTM6GcasFGJijPvuTMlTJIej26batpKgKk0CphGwUyBBo2n
-wCfdTIyKCczs6asmfcgMrMkzeez3Oqui7gs5UpMiDoy3YZrAYgZRnKLMJ+YnpZXm
-lPQZg13be7uo0AI5m1g5mSk9sr0Aq+/S1hsth4doqizs1NymcCYIo5yM+gwT8ks7
-x6oCTcN04uenre9mJuuNHBRzT+qO4B2MrUZAboiI8d4eckcpcTNBkAC1vPHVMoU5
-O8P9NiyK+L1jOZjR5DME/XLNKE2dUcSv5bGQI9X9uDrYVqB+vglu2O0wVwNBDiqF
-mFLGOyWFq/H6tx/yFd0+NQ4x6qbRBlQC991h0MTuBgKBjN4A0C1tu6D4CDEUFIQ9
-W7siPWlYZX2aBbdH43oAZIk8QCvanBlENXoior2Mn7J2f3hs2pIwn60tbfRuKf1E
-Ok5aRTm1KW+CGq2wN+AxgLYdLCtlDhIqXQGn4AwRZDJZTryP4Y2i3w5h7KGqgLYo
-C9h93p08HmdsGae19+rUW2C2gRbcgXU8j5BGYuP+vy9NxCQbzNKHXIh4LhNlvLHv
-BDEggKplvx3SsRRgzynFKR2DTc6JcGhB3OdqYgG3Lyf0j438WFbr/NlwDM/V9pRJ
-wyvsmyuAQ2USSEa32t7Z2lNyvO+MW/f9sry7VEiNagilc6/+AdA=
-=Yexj
+iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmlenD8ACgkQTeaiAW5i
+L5coqg/+L7em6SNU3APWru4ZI6Dxzds6g/y2mJ5viRQp09VDXswY+XbiLFaK+g7z
++43aHMKpr5tSH4FfruDhU00rnt7S4ZPIG6WuH6vFRdY1bvRSjKbAHQ6YQqIi4HPd
+FfYxEnL5weUMDs61ZeDHM4dnM7WSg/5kkGYkZyVdNQSW+ad8L1aOXpoe9L6GQsyE
+0C3YCXhxZnKVquxy7Z53imRGMlCxRaz3hawBd7aaNMsuO8sdqfSTWB32QwB3ImC5
+KswURxIK8uLrh3RkN7xoZ83w3QmUaBlBu1zT6CdQdwHH+cEcO5iusePmsBw6y18A
+BtClNFFQJM1xzDndYC3lZz34SAzUXpzO5UoQce7yS/MVIenvK5UTZI14xQ5b8KjY
+JsRMa9J3H4crA0WOdM0IyNqFSKaCBDjNuhcRArncaR9KPr/6RD3RPsvGiZGww6Jb
+nQvBSx5sD6ggs1z/45OQdGEN3hcU82vvpCxq2MeZrYepqTsm/nlMfwrtuFAbtbkN
+5lM0ClOQDSUhgd0SQ+t1dwwGgtT6FHIEtSpTzOmYUAZe21yFDcDe9U9fbU72ZheO
+dBRQDaS3x6RVjV1fBKu7a0UG37Tfgjv3YX9RSPIAVek5fei0qMLIYXpgE7grsBpI
+gQHLaoR+FgmpR1VdxwlksKXGpWet6918QmvVQu30cCOTCKjou9o=
+=mOTa
 -----END PGP SIGNATURE-----
