@@ -27,6 +27,22 @@ SHA256: 93b892b63c27296f64a1671fc404d6402a5a17a4ee35510032291b7f39a9690e
 Description: no description given
 
 Package: frostyard-nbc
+Version: 0.13.4
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 11103
+Conflicts: nbc
+Priority: optional
+Homepage: https://github.com/frostyard/nbc
+Filename: pool/main/f/frostyard-nbc/frostyard-nbc_0.13.4_amd64.deb
+Size: 4507140
+MD5sum: bd9d96ebaba9c4ead9a4dfadd42bc45f
+SHA1: 081900cb1734e88339cc28501afc34035432439d
+SHA256: 78da1e43111d9f026fe642a64195bca3593e1fd9b2d52c658da41369ed3c8b60
+Description: Install, update and manage bootable containers on bare metal.
+ bootc alternative using A/B root partitions and container images.
+
+Package: frostyard-nbc
 Version: 0.13.3
 Architecture: amd64
 Maintainer: Brian Ketelsen <bketelsen@gmail.com>
