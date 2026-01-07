@@ -1,0 +1,156 @@
+name: Publish Debian Package
+
+on:
+  workflow_call:
+    inputs:
+      distribution:
+        description: 'Distribution (stable/testing/auto). Auto uses prerelease flag.'
+        required: false
+        default: 'auto'
+        type: string
+      deb_pattern:
+        description: 'Glob pattern for .deb files in release assets'
+        required: false
+        default: '*_amd64.deb'
+        type: string
+      keep_versions:
+        description: 'Number of versions to keep per package'
+        required: false
+        default: 5
+        type: number
+    secrets:
+      GPG_PRIVATE_KEY:
+        required: true
+        description: 'Base64-encoded GPG private key for signing'
+      GPG_PASSPHRASE:
+        required: true
+        description: 'Passphrase for the GPG key'
+      REPO_DEPLOY_KEY:
+        required: true
+        description: 'SSH deploy key with write access to the plow repository'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: plow-publish-${{ inputs.distribution == 'auto' && (github.event.release.prerelease && 'testing' || 'stable') || inputs.distribution }}
+      cancel-in-progress: false
+
+    steps:
+      - name: Determine distribution
+        id: dist
+        run: |
+          if [ "${{ inputs.distribution }}" = "auto" ]; then
+            if [ "${{ github.event.release.prerelease }}" = "true" ]; then
+              echo "dist=testing" >> $GITHUB_OUTPUT
+            else
+              echo "dist=stable" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "dist=${{ inputs.distribution }}" >> $GITHUB_OUTPUT
+          fi
+          echo "Distribution: $(cat $GITHUB_OUTPUT | grep dist | cut -d= -f2)"
+
+      - name: Download plow binary
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # Get latest plow release
+          gh release download --repo frostyard/plow --pattern 'plow_linux_amd64' --output plow || {
+            echo "Failed to download plow binary. Make sure a release exists in frostyard/plow."
+            exit 1
+          }
+          chmod +x plow
+          ./plow version
+
+      - name: Download .deb from release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p debs
+          gh release download "${{ github.event.release.tag_name }}" \
+            --repo "${{ github.repository }}" \
+            --pattern '${{ inputs.deb_pattern }}' \
+            --dir ./debs/ || {
+            echo "No .deb files found matching pattern: ${{ inputs.deb_pattern }}"
+            exit 1
+          }
+          
+          # Remove arm64 packages (not yet supported)
+          rm -f ./debs/*_arm64.deb 2>/dev/null || true
+          
+          echo "Downloaded packages:"
+          ls -la ./debs/
+
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          repository: frostyard/plow
+          ref: gh-pages
+          ssh-key: ${{ secrets.REPO_DEPLOY_KEY }}
+          path: repo
+
+      - name: Import GPG key
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 -d | gpg --batch --import
+          
+          # Get the key ID and trust it
+          KEY_ID=$(gpg --list-secret-keys --keyid-format long 2>/dev/null | grep sec | head -1 | awk '{print $2}' | cut -d'/' -f2)
+          echo "Using GPG key: $KEY_ID"
+          echo "${KEY_ID}:6:" | gpg --import-ownertrust
+
+      - name: Add packages to repository
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          for deb in ./debs/*.deb; do
+            [ -f "$deb" ] || continue
+            echo "Adding: $deb"
+            ./plow add "$deb" \
+              --repo-root ./repo \
+              --dist "${{ steps.dist.outputs.dist }}" \
+              --keep-versions "${{ inputs.keep_versions }}"
+          done
+
+      - name: Sign repository
+        env:
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: |
+          ./plow sign \
+            --repo-root ./repo \
+            --dist "${{ steps.dist.outputs.dist }}"
+
+      - name: Export public key
+        run: |
+          gpg --armor --export > ./repo/public.key
+          echo "Exported public key to repo/public.key"
+
+      - name: Commit and push
+        working-directory: repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add -A
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Publish ${{ github.repository }}@${{ github.event.release.tag_name }} to ${{ steps.dist.outputs.dist }}"
+            git push
+            echo "Published successfully!"
+          fi
+
+      - name: Summary
+        run: |
+          echo "## Package Published" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Repository**: ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Release**: ${{ github.event.release.tag_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Distribution**: ${{ steps.dist.outputs.dist }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Packages" >> $GITHUB_STEP_SUMMARY
+          for deb in ./debs/*.deb; do
+            [ -f "$deb" ] || continue
+            echo "- \`$(basename $deb)\`" >> $GITHUB_STEP_SUMMARY
+          done

@@ -1,0 +1,108 @@
+name: Initialize GitHub Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      origin:
+        description: 'Repository origin name'
+        default: 'Frostyard'
+        required: false
+      label:
+        description: 'Repository label'
+        default: 'Frostyard'
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build plow
+        run: go build -o plow ./cmd/plow
+
+      - name: Create gh-pages branch
+        run: |
+          # Create orphan branch
+          git checkout --orphan gh-pages
+          
+          # Remove all files
+          git rm -rf . || true
+          
+          # Create directory structure with plow
+          ./plow init
+          
+          # Create .nojekyll to prevent Jekyll processing
+          touch .nojekyll
+          
+          # Commit
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Initialize repository structure"
+          
+          # Push
+          git push -f origin gh-pages
+
+      - name: Create index.html
+        run: |
+          git checkout gh-pages
+          cat > index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Frostyard APT Repository</title>
+            <style>
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 50px auto; padding: 0 20px; line-height: 1.6; }
+              code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; }
+              pre { background: #f4f4f4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+              h1 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
+            </style>
+          </head>
+          <body>
+            <h1>Frostyard APT Repository</h1>
+            <p>This is the official Debian package repository for Frostyard projects.</p>
+            
+            <h2>Quick Setup</h2>
+            <pre><code># Add the GPG key
+          curl -fsSL https://frostyard.github.io/plow/public.key | sudo gpg --dearmor -o /usr/share/keyrings/frostyard.gpg
+
+          # Add the repository (stable)
+          echo "deb [signed-by=/usr/share/keyrings/frostyard.gpg] https://frostyard.github.io/plow stable main" | sudo tee /etc/apt/sources.list.d/frostyard.list
+
+          # Or for testing releases
+          echo "deb [signed-by=/usr/share/keyrings/frostyard.gpg] https://frostyard.github.io/plow testing main" | sudo tee /etc/apt/sources.list.d/frostyard.list
+
+          # Update and install
+          sudo apt update
+          sudo apt install PACKAGE_NAME</code></pre>
+            
+            <h2>Available Distributions</h2>
+            <ul>
+              <li><strong>stable</strong> - Production-ready releases</li>
+              <li><strong>testing</strong> - Pre-release versions for testing</li>
+            </ul>
+            
+            <h2>Links</h2>
+            <ul>
+              <li><a href="https://github.com/frostyard/plow">Repository Manager (plow)</a></li>
+              <li><a href="public.key">GPG Public Key</a></li>
+            </ul>
+          </body>
+          </html>
+          EOF
+          
+          git add index.html
+          git commit -m "Add index.html"
+          git push

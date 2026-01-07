@@ -1,0 +1,74 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - goos: linux
+            goarch: amd64
+          - goos: linux
+            goarch: arm64
+          - goos: darwin
+            goarch: amd64
+          - goos: darwin
+            goarch: arm64
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Get version
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Build
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          COMMIT=${{ github.sha }}
+          DATE=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          
+          LDFLAGS="-s -w"
+          LDFLAGS="$LDFLAGS -X github.com/frostyard/plow/internal/cli.Version=$VERSION"
+          LDFLAGS="$LDFLAGS -X github.com/frostyard/plow/internal/cli.Commit=$COMMIT"
+          LDFLAGS="$LDFLAGS -X github.com/frostyard/plow/internal/cli.BuildDate=$DATE"
+          
+          go build -ldflags "$LDFLAGS" -o plow_${{ matrix.goos }}_${{ matrix.goarch }} ./cmd/plow
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: plow_${{ matrix.goos }}_${{ matrix.goarch }}
+          path: plow_${{ matrix.goos }}_${{ matrix.goarch }}
+
+  upload:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: artifacts/*
+          generate_release_notes: true
