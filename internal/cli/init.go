@@ -19,6 +19,10 @@ var initCmd = &cobra.Command{
 			return fmt.Errorf("initialize repository: %w", err)
 		}
 
+		if err := r.GenerateHTMLIndexes(); err != nil {
+			return fmt.Errorf("generate HTML indexes: %w", err)
+		}
+
 		fmt.Println("Repository initialized successfully")
 		fmt.Printf("  Root: %s\n", repoRoot)
 		fmt.Printf("  Distributions: %v\n", cfg.Distributions)
