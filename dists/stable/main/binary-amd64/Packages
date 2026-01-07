@@ -27,6 +27,20 @@ SHA256: 93b892b63c27296f64a1671fc404d6402a5a17a4ee35510032291b7f39a9690e
 Description: no description given
 
 Package: frostyard-nbc
+Version: 0.13.3
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 11103
+Priority: optional
+Homepage: https://github.com/frostyard/nbc
+Filename: pool/main/f/frostyard-nbc/frostyard-nbc_0.13.3_amd64.deb
+Size: 4507060
+MD5sum: 814e3915e29032692eab4c0250f2db14
+SHA1: 1654fd5ba06d1fd9153c18959878816d5046edd2
+SHA256: 12eeaa3801036d6981d48bd2b20d3fe2c4aedfc208f0ea20744e4c2ecdee2e8f
+Description: no description given
+
+Package: frostyard-nbc
 Version: 0.13.2
 Architecture: amd64
 Maintainer: Brian Ketelsen <bketelsen@gmail.com>
