@@ -13,3 +13,22 @@ SHA256: 599d05fb35766742661dab4b27df8e1c7549eaff670e0fc09333de96ede14441
 Description: System management tool for nbc/bootc installations.
  Manage flatpaks, homebrew and system updates with a modern GTK4/Libadwaita interface.
 
+Package: frostyard-nbc
+Version: 0.13.5
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 11103
+Depends: gdisk, dosfstools, e2fsprogs, util-linux, parted, udev, rsync, coreutils, passwd, efibootmgr
+Recommends: grub-efi-amd64, systemd-boot, cryptsetup, btrfs-progs, dracut, podman
+Suggests: initramfs-tools
+Conflicts: nbc
+Priority: optional
+Homepage: https://github.com/frostyard/nbc
+Filename: pool/main/f/frostyard-nbc/frostyard-nbc_0.13.5_amd64.deb
+Size: 4507284
+MD5sum: 71531a580d9f7c7230dbe174206927ad
+SHA1: 05d94b8e434ad74f2b156ce0feb0eb5048a08028
+SHA256: 62aff07730f216996a21ed92345655543dd6a10120eaa086c43eca41035945d3
+Description: Install, update and manage bootable containers on bare metal.
+ bootc alternative using A/B root partitions and container images.
+

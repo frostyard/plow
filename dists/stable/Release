@@ -5,10 +5,10 @@ Codename: stable
 Architectures: amd64
 Components: main
 Description: Frostyard Debian Repository
-Date: Wed, 07 Jan 2026 17:49:32 UTC
+Date: Wed, 07 Jan 2026 17:50:13 UTC
 MD5Sum:
- aef6eba0fff4972c9aa921e58d7b79c7              608 main/binary-amd64/Packages
+ e8dcfb4e883dda2c657b72019f66ce3f             1410 main/binary-amd64/Packages
 SHA1:
- 48f728b3aacedf7669b26ac3f7da866aa5dd30e8              608 main/binary-amd64/Packages
+ 3bf527596acb8dee0cf115f5f630af09253d981d             1410 main/binary-amd64/Packages
 SHA256:
- c2f1315fd6572716465d9491a6432ce69b009e30241910bc07cbe9e320225377              608 main/binary-amd64/Packages
+ 02971a92cbbd0db965c96901e2acfc1b82a5a2183ce2445a6c70bd4af483214a             1410 main/binary-amd64/Packages
