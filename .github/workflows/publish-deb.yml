@@ -4,30 +4,30 @@ on:
   workflow_call:
     inputs:
       distribution:
-        description: 'Distribution (stable/testing/auto). Auto uses prerelease flag.'
+        description: "Distribution (stable/testing/auto). Auto uses prerelease flag."
         required: false
-        default: 'auto'
+        default: "auto"
         type: string
       deb_pattern:
-        description: 'Glob pattern for .deb files in release assets'
+        description: "Glob pattern for .deb files in release assets"
         required: false
-        default: '*_amd64.deb'
+        default: "*_amd64.deb"
         type: string
       keep_versions:
-        description: 'Number of versions to keep per package'
+        description: "Number of versions to keep per package"
         required: false
         default: 5
         type: number
     secrets:
       GPG_PRIVATE_KEY:
         required: true
-        description: 'Base64-encoded GPG private key for signing'
+        description: "Base64-encoded GPG private key for signing"
       GPG_PASSPHRASE:
         required: false
-        description: 'Passphrase for the GPG key (optional if key has no passphrase)'
+        description: "Passphrase for the GPG key (optional if key has no passphrase)"
       REPO_DEPLOY_KEY:
         required: true
-        description: 'SSH deploy key with write access to the plow repository'
+        description: "SSH deploy key with write access to the plow repository"
 
 jobs:
   publish:
@@ -75,10 +75,10 @@ jobs:
             echo "No .deb files found matching pattern: ${{ inputs.deb_pattern }}"
             exit 1
           }
-          
+
           # Remove arm64 packages (not yet supported)
           rm -f ./debs/*_arm64.deb 2>/dev/null || true
-          
+
           echo "Downloaded packages:"
           ls -la ./debs/
 
@@ -89,11 +89,12 @@ jobs:
           ref: gh-pages
           ssh-key: ${{ secrets.REPO_DEPLOY_KEY }}
           path: repo
+          lfs: true
 
       - name: Import GPG key
         run: |
           echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 -d | gpg --batch --import
-          
+
           # Get the full fingerprint and trust it
           FINGERPRINT=$(gpg --list-secret-keys --with-colons 2>/dev/null | grep '^fpr' | head -1 | cut -d: -f10)
           echo "Using GPG key fingerprint: $FINGERPRINT"
@@ -130,9 +131,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           git add -A
-          
+
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
