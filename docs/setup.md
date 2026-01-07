@@ -96,7 +96,7 @@ Add these secrets:
 | Secret Name | Value | Notes |
 |-------------|-------|-------|
 | `DEB_GPG_PRIVATE_KEY` | Contents of `private-key-base64.txt` | Base64-encoded GPG private key |
-| `DEB_GPG_PASSPHRASE` | Your GPG passphrase | Leave empty if no passphrase |
+| `DEB_GPG_PASSPHRASE` | Your GPG passphrase | Optional - skip if key has no passphrase |
 | `DEB_REPO_DEPLOY_KEY` | Contents of `plow-deploy-key` | SSH private key |
 
 **Important**: Set "Repository access" to allow all repositories (or select specific ones).

@@ -23,8 +23,8 @@ on:
         required: true
         description: 'Base64-encoded GPG private key for signing'
       GPG_PASSPHRASE:
-        required: true
-        description: 'Passphrase for the GPG key'
+        required: false
+        description: 'Passphrase for the GPG key (optional if key has no passphrase)'
       REPO_DEPLOY_KEY:
         required: true
         description: 'SSH deploy key with write access to the plow repository'

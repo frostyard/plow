@@ -24,7 +24,7 @@ jobs:
     uses: frostyard/plow/.github/workflows/publish-deb.yml@main
     secrets:
       GPG_PRIVATE_KEY: ${{ secrets.DEB_GPG_PRIVATE_KEY }}
-      GPG_PASSPHRASE: ${{ secrets.DEB_GPG_PASSPHRASE }}
+      GPG_PASSPHRASE: ${{ secrets.DEB_GPG_PASSPHRASE }}  # Optional - omit if no passphrase
       REPO_DEPLOY_KEY: ${{ secrets.DEB_REPO_DEPLOY_KEY }}
 ```
 
