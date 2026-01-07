@@ -25,7 +25,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: "1.22"
+          go-version: "1.25"
 
       - name: Build plow
         run: |
@@ -37,19 +37,19 @@ jobs:
         run: |
           # Create orphan branch
           git checkout --orphan gh-pages
-          
+
           # Remove all tracked files
           git rm -rf . || true
-          
+
           # Clean untracked files too
           git clean -fd || true
-          
+
           # Create directory structure with plow
           /tmp/plow init
-          
+
           # Create .nojekyll to prevent Jekyll processing
           touch .nojekyll
-          
+
           # Create index.html
           cat > index.html << 'EOF'
           <!DOCTYPE html>
@@ -68,7 +68,7 @@ jobs:
           <body>
             <h1>Frostyard APT Repository</h1>
             <p>This is the official Debian package repository for Frostyard projects.</p>
-            
+
             <h2>Quick Setup</h2>
             <pre><code># Add the GPG key
           curl -fsSL https://frostyard.github.io/plow/public.key | sudo gpg --dearmor -o /usr/share/keyrings/frostyard.gpg
@@ -82,13 +82,13 @@ jobs:
           # Update and install
           sudo apt update
           sudo apt install PACKAGE_NAME</code></pre>
-            
+
             <h2>Available Distributions</h2>
             <ul>
               <li><strong>stable</strong> - Production-ready releases</li>
               <li><strong>testing</strong> - Pre-release versions for testing</li>
             </ul>
-            
+
             <h2>Links</h2>
             <ul>
               <li><a href="https://github.com/frostyard/plow">Repository Manager (plow)</a></li>
@@ -97,12 +97,12 @@ jobs:
           </body>
           </html>
           EOF
-          
+
           # Commit
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Initialize repository structure"
-          
+
           # Push
           git push -f origin gh-pages
