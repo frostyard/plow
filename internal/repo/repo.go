@@ -2,14 +2,12 @@
 package repo
 
 import (
-	"compress/gzip"
 	"crypto/md5"
 	"crypto/sha1"
 	"crypto/sha256"
 	"fmt"
 	"io"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -152,35 +150,10 @@ func (r *Repository) generatePackagesForArch(dist, comp, arch string) error {
 		return fmt.Errorf("write Packages: %w", err)
 	}
 
-	// Generate Packages.gz
-	gzPath := packagesPath + ".gz"
-	gzFile, err := os.Create(gzPath)
-	if err != nil {
-		return fmt.Errorf("create Packages.gz: %w", err)
-	}
-
-	gzWriter := gzip.NewWriter(gzFile)
-	if _, err := gzWriter.Write([]byte(content.String())); err != nil {
-		_ = gzWriter.Close()
-		_ = gzFile.Close()
-		return fmt.Errorf("write Packages.gz: %w", err)
-	}
-
-	if err := gzWriter.Close(); err != nil {
-		_ = gzFile.Close()
-		return fmt.Errorf("close gzip writer: %w", err)
-	}
-	if err := gzFile.Close(); err != nil {
-		return fmt.Errorf("close Packages.gz: %w", err)
-	}
-
-	// Generate Packages.xz (using xz command)
-	xzPath := packagesPath + ".xz"
-	cmd := exec.Command("xz", "-k", "-f", packagesPath)
-	if err := cmd.Run(); err != nil {
-		// xz might not be installed, that's okay
-		fmt.Fprintf(os.Stderr, "Warning: could not create %s: %v\n", xzPath, err)
-	}
+	// Note: We intentionally don't generate Packages.gz or Packages.xz
+	// because GitHub Pages doesn't support Git LFS, and these files would
+	// be served as LFS pointers. Modern apt clients work fine with the
+	// uncompressed Packages file.
 
 	return nil
 }

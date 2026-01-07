@@ -14,7 +14,7 @@ var (
 var indexCmd = &cobra.Command{
 	Use:   "index",
 	Short: "Regenerate repository index files",
-	Long:  `Regenerates the Packages, Packages.gz, Packages.xz, and Release files for a distribution, and generates HTML index pages for browser-friendly navigation.`,
+	Long:  `Regenerates the Packages and Release files for a distribution, and generates HTML index pages for browser-friendly navigation.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		cfg := repo.DefaultConfig()
 		r := repo.New(repoRoot, cfg)
