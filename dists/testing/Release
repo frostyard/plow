@@ -1,10 +1,7 @@
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
-
 Origin: Frostyard
 Label: Frostyard
-Suite: stable
-Codename: stable
+Suite: testing
+Codename: testing
 Architectures: amd64
 Components: main
 Description: Frostyard Debian Repository
@@ -21,19 +18,3 @@ SHA256:
  fd74d6d4dec33182595064d17ac1e38dcb20239c8f334d92510fa49eed57698d             1867 main/binary-amd64/Packages
  958752f9c95e4b0e2a7f7be6a17b8f2c9880abe6c68f35058536a4804856e8da              695 main/binary-amd64/Packages.gz
  d1edf9ff389661fef722cc8b789db93077d1b7fc0dd13591c51d2ce4669bb5b1              744 main/binary-amd64/Packages.xz
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmleiScACgkQTeaiAW5i
-L5cM0w//SoCGnl1uN/jB5r8HNRBQ/UGk6gu/nbU/+DlSB4qnj2bjbptiblD6olus
-eK6O730OCwndlfaCS+1KkbBMkb6LtUICpjauEhQQktYqT5bSJO7dv6scK+UkblTo
-XZYUqI/bfBS2u3Kw1hfZZ8CPCUSttlrhahrpSPoGcVK/DnZNsK+zaJXqz/+q93a4
-h4XyyehziBK7qSlni959E9v+dz8fOta9EhedHeEii0N1W3Ps8NJ9g2IObbdOw8Ke
-UIzW5MxKnwcNfCCEb/tjXyzqUKp+bcba3mXBA8/A1XWzKIcNQiRW+0Sh40R7QJY5
-7mBVO4Ckv/Q7qwi5ooNbxSDA8Vw+yvFAak2rPI/p+5xj27ZNaUTDrQXX1pnUJ4oc
-dyUI+z8DgDdFvk4eIPVkjxEf8OPwbBlOf+h6jEXaIy3hbn8kts0zdUS+k5DoaoHO
-fqKuOyTMtp0lXXzIlnNGnnvRZVgNrDZxBz/+r912PeDk2y3bfwvYabOIjDbsVnaH
-pOR25oKmOrDGtZsqxRfG+19lQZB7vhyOkouf4JfT8Wu9w9Fh55Y6xcqRFrGeFAq7
-NQzCL9KuM7jBxpXCKocCbYzY42na0BgiIYzi2JOcLy79SwfXkGWG0m3YNnFukQqz
-EJDqYjPCpQIb/juzutz+8sSdTj5Fptl3PQgNNYhNJhsLd43UMFM=
-=VoFX
------END PGP SIGNATURE-----

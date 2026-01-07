@@ -1,0 +1,56 @@
+Package: frostyard-chairlift
+Version: 0.1.1
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 7653
+Priority: optional
+Homepage: https://github.com/frostyard/chairlift
+Filename: pool/main/f/frostyard-chairlift/frostyard-chairlift_0.1.1_amd64.deb
+Size: 3401680
+MD5sum: a0bc8ef127f3520ab6cbdd14f9a6ba3a
+SHA1: 5993ad015c848831fc3e81a1d2ba3885335e66ac
+SHA256: 93b892b63c27296f64a1671fc404d6402a5a17a4ee35510032291b7f39a9690e
+Description: no description given
+
+Package: frostyard-nbc
+Version: 0.13.3
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 11103
+Priority: optional
+Homepage: https://github.com/frostyard/nbc
+Filename: pool/main/f/frostyard-nbc/frostyard-nbc_0.13.3_amd64.deb
+Size: 4507060
+MD5sum: 814e3915e29032692eab4c0250f2db14
+SHA1: 1654fd5ba06d1fd9153c18959878816d5046edd2
+SHA256: 12eeaa3801036d6981d48bd2b20d3fe2c4aedfc208f0ea20744e4c2ecdee2e8f
+Description: no description given
+
+Package: frostyard-nbc
+Version: 0.13.2
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 11099
+Priority: optional
+Homepage: https://github.com/frostyard/nbc
+Filename: pool/main/f/frostyard-nbc/frostyard-nbc_0.13.2_amd64.deb
+Size: 4506516
+MD5sum: 6846b29b926ace5549381f2896caa900
+SHA1: 71592838dd659a9571606840e33bbd2c29bad866
+SHA256: 4e0d10b6557186a8ecdc726b7ca13ece461030767ae16152306610bb4e346455
+Description: no description given
+
+Package: nbc
+Version: 0.13.1
+Architecture: amd64
+Maintainer: Brian Ketelsen <bketelsen@gmail.com>
+Installed-Size: 11099
+Priority: optional
+Homepage: https://github.com/frostyard/nbc
+Filename: pool/main/n/nbc/nbc_0.13.1_amd64.deb
+Size: 4506518
+MD5sum: 53b0ffb0abe27ea880f74e58768bb4f3
+SHA1: 8711b881cbebf7142fe85a2478c12cd8d7cc10e1
+SHA256: 105260289b8ead03686659e72e67297ef32b6302129b5d9bfd1bf5988a204840
+Description: no description given
+

@@ -1,17 +1,3 @@
-Package: chairlift
-Version: 0.1.0
-Architecture: amd64
-Maintainer: Brian Ketelsen <bketelsen@gmail.com>
-Installed-Size: 7653
-Priority: optional
-Homepage: https://github.com/frostyard/chairlift
-Filename: pool/main/c/chairlift/chairlift_0.1.0_amd64.deb
-Size: 3401666
-MD5sum: 98f0e4614fb9fcb7ac0fda7d815d0f67
-SHA1: 7f913b07f248a6fe2e55155f03d7193b4465ffe4
-SHA256: c4b57a078ce7b2fe8cfa90308258b851512c7c544d9c75d48c7a6f3ba15381d7
-Description: no description given
-
 Package: frostyard-chairlift
 Version: 0.1.1
 Architecture: amd64
