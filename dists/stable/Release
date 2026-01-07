@@ -5,16 +5,16 @@ Codename: stable
 Architectures: amd64
 Components: main
 Description: Frostyard Debian Repository
-Date: Wed, 07 Jan 2026 02:37:07 UTC
+Date: Wed, 07 Jan 2026 03:01:58 UTC
 MD5Sum:
- 1a9ddea1aad16996e0a76964b65dde15              439 main/binary-amd64/Packages
- 3ccb5da214abf70eaaf99ac005afb846              345 main/binary-amd64/Packages.gz
- ba11554a6d23b5c2ccea40cbf30e894c              412 main/binary-amd64/Packages.xz
+ 8de46aab0f5a53e0f69b9040494966c4              899 main/binary-amd64/Packages
+ 0288b59f97335b7ce40253794f7beaf5              481 main/binary-amd64/Packages.gz
+ 5e9384a73ffe9bcb53a6548c0ba6b5f4              544 main/binary-amd64/Packages.xz
 SHA1:
- 3d2754c37895e52d942e7bd2341007d9360818c7              439 main/binary-amd64/Packages
- 0952a85949a2b67ce84ed54c4306425a24ec0b9c              345 main/binary-amd64/Packages.gz
- a1c7e405449604c5e4f39b00b661edc037b621fd              412 main/binary-amd64/Packages.xz
+ 76a00667efb0ff09ea4f355d97540a1b44b929f4              899 main/binary-amd64/Packages
+ 0502b64d19d3d9917da7cfd094feba6991b41287              481 main/binary-amd64/Packages.gz
+ a1bf40c3ee6fa86bfd2ae40459d33ab92476b875              544 main/binary-amd64/Packages.xz
 SHA256:
- f93c0d4cc1cc9b2c472b26b064d4d5b4d39fb368e4112743824aa4e3d06e7b32              439 main/binary-amd64/Packages
- ad8eaf335a9adc4ed57097b42404f342a5cbc206915266137f13c438597d463c              345 main/binary-amd64/Packages.gz
- 251b1506f4984895c088be958066684cbf4d45022cda06fad4833d14d1ac9e85              412 main/binary-amd64/Packages.xz
+ 834d5277aca590c4d6536b54557385ef212048bfc867f953e5a34592dcceaacf              899 main/binary-amd64/Packages
+ d6258bdf790786e78f4b102eb5b4775343bf62ef819e1883100112f1e7e5f949              481 main/binary-amd64/Packages.gz
+ ddb7401b9ad991d7765c81504e54a9198f0040a6bfa14150b8e8ed1a5c5e3402              544 main/binary-amd64/Packages.xz

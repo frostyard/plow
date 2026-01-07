@@ -8,32 +8,32 @@ Codename: stable
 Architectures: amd64
 Components: main
 Description: Frostyard Debian Repository
-Date: Wed, 07 Jan 2026 02:37:07 UTC
+Date: Wed, 07 Jan 2026 03:01:58 UTC
 MD5Sum:
- 1a9ddea1aad16996e0a76964b65dde15              439 main/binary-amd64/Packages
- 3ccb5da214abf70eaaf99ac005afb846              345 main/binary-amd64/Packages.gz
- ba11554a6d23b5c2ccea40cbf30e894c              412 main/binary-amd64/Packages.xz
+ 8de46aab0f5a53e0f69b9040494966c4              899 main/binary-amd64/Packages
+ 0288b59f97335b7ce40253794f7beaf5              481 main/binary-amd64/Packages.gz
+ 5e9384a73ffe9bcb53a6548c0ba6b5f4              544 main/binary-amd64/Packages.xz
 SHA1:
- 3d2754c37895e52d942e7bd2341007d9360818c7              439 main/binary-amd64/Packages
- 0952a85949a2b67ce84ed54c4306425a24ec0b9c              345 main/binary-amd64/Packages.gz
- a1c7e405449604c5e4f39b00b661edc037b621fd              412 main/binary-amd64/Packages.xz
+ 76a00667efb0ff09ea4f355d97540a1b44b929f4              899 main/binary-amd64/Packages
+ 0502b64d19d3d9917da7cfd094feba6991b41287              481 main/binary-amd64/Packages.gz
+ a1bf40c3ee6fa86bfd2ae40459d33ab92476b875              544 main/binary-amd64/Packages.xz
 SHA256:
- f93c0d4cc1cc9b2c472b26b064d4d5b4d39fb368e4112743824aa4e3d06e7b32              439 main/binary-amd64/Packages
- ad8eaf335a9adc4ed57097b42404f342a5cbc206915266137f13c438597d463c              345 main/binary-amd64/Packages.gz
- 251b1506f4984895c088be958066684cbf4d45022cda06fad4833d14d1ac9e85              412 main/binary-amd64/Packages.xz
+ 834d5277aca590c4d6536b54557385ef212048bfc867f953e5a34592dcceaacf              899 main/binary-amd64/Packages
+ d6258bdf790786e78f4b102eb5b4775343bf62ef819e1883100112f1e7e5f949              481 main/binary-amd64/Packages.gz
+ ddb7401b9ad991d7765c81504e54a9198f0040a6bfa14150b8e8ed1a5c5e3402              544 main/binary-amd64/Packages.xz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmldxtMACgkQTeaiAW5i
-L5faMA//QN0o7aGyOeyn9ex4jiDgxqGbquzpgU9KseTkykbEhmxUyuYms8mvD4vI
-G018IOzLvid2pA/nbt7G4b8lqjbsuLjOPWYTXEXLlwV54ebsv8SvZayUAAQb4DB4
-BNnLK7lv//a+RyglE186BV2Q5VVu2TAmVMqvXJ4mdwTJ/kTDsgG1GHpmyQHGu7L3
-7EkrYPL0kbdXgU+Qb98jsgyCNUnE5JT3ch4ppysenkNJLQ81PDs6tf3xj7YeK2e8
-Qpah0wVjjP4Yd+nNKX0HJnGyTzgk/feH67bDDPSJN5OJ5wl3F28bee8v11rZSdlc
-5Z8M38XzFxGFTBs9Pu2CIl7csFrJcrXnqT/5iYw/ZJt3dZ1Yi6CLSuOqj8M1d8jZ
-PAjPHvGyZXLueZXmk11Pc04Bkvnvx2pi49vjyNru+CHvY2+RNuaShJs4lprRjxna
-XNr2gveRAwN0P0bsTc/QxYog/Itik5ZBZeaCadoltkWxwFl8JbnmV++9kSJ1fyL6
-pMXs/6EXN+DkyLzmFGGyNv4OJNw/e5vj49p4yAp6dj5j2iSOhzuBK3GjXMikQ6Lh
-wLWaToTjmN6r7C9u27GJWj3SyB/410mXwZGxI3AP4y3wZDaF7uwGhHcInokHQQSu
-k2VBmoH3wiZ76oSe6mfy9gCaYtYsAyKohUB1x/kdhMHNOlx5CVY=
-=KlZX
+iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmldzKYACgkQTeaiAW5i
+L5cuyQ/9HdJiSVYgJVyHZQQb3j6lMsx87KskGUCyrZhAH3+pD7oW9kw9S+2FR5bX
+8RZutkfBM5+nz+tFcInOpS/K+evNbqaZOCLBdsHzMv1YZ6a+dkGLnzXOxOoFKsX6
+9cBHjSJBa/55UYTLdWrFmN21sDWPl/bA2SgZGA4TV0DEHoVmIy036rGtgR9i9RZ3
+5S2dlWDBZ45Zdj+4y1sDLTESzCk7+N+uSq18n3QvdBI13jTl2xBOfpV1xpC5FNHN
+e3tXp1ymbFnxgl7B4sIuBSLc3JCMwoxZbuyxz9ny5EkLew9I5SQB1c40r2SAFjd8
+BMkB2TW9VnRNajfUiojDh3+IsSMhy/FrJur4bGJppoEVFo/0qgw/A0nJm57luFuI
+Kauj+Nw3/uKHdoixDnSoFevQY/QJuAlcmaqGM3lzCSrKKgjAJf8GkUVoux/Lnv6G
+drJd/Ev4DuDqPDybMBQHOB66vuZ8Gy2bJYQpU6W3AQRBIcfSgCkNSoPbijue3mW7
+svf1inFikOMhVnW2HZ1MABYyW7FdmzxHNXW7KZkbqgiIfJMps60nCpstqM0sI6Pt
+tE9MmvvbMu+gPQqZkzp1XCC1Bx1+Cr0TOXIth85pQP+YgbzCEjBwBDEZ3rsc2ksh
+RsU1dnpwDBZKNpc6nFN9EST5BWhv3U7CIPmsi+Z7iZKl5WmIzmY=
+=XApD
 -----END PGP SIGNATURE-----
