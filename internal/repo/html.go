@@ -8,7 +8,20 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+	"sync"
 )
+
+var (
+	htmlTmpl     *template.Template
+	htmlTmplOnce sync.Once
+)
+
+func getHTMLTemplate() *template.Template {
+	htmlTmplOnce.Do(func() {
+		htmlTmpl = template.Must(template.New("index").Parse(htmlTemplate))
+	})
+	return htmlTmpl
+}
 
 const htmlTemplate = `<!DOCTYPE html>
 <html lang="en">
@@ -146,7 +159,7 @@ func (r *Repository) generateIndexForDirectory(dirPath string) error {
 		return files[i].Name < files[j].Name
 	})
 
-	// Calculate relative path for display
+	// Calculate relative path for display (use forward slashes for URLs)
 	relPath, err := filepath.Rel(r.Root, dirPath)
 	if err != nil {
 		relPath = dirPath
@@ -154,7 +167,7 @@ func (r *Repository) generateIndexForDirectory(dirPath string) error {
 	if relPath == "." {
 		relPath = "/"
 	} else {
-		relPath = "/" + relPath + "/"
+		relPath = "/" + filepath.ToSlash(relPath) + "/"
 	}
 
 	// Determine if we should show parent link
@@ -167,20 +180,14 @@ func (r *Repository) generateIndexForDirectory(dirPath string) error {
 		Files:       files,
 	}
 
-	// Parse and execute template
-	tmpl, err := template.New("index").Parse(htmlTemplate)
-	if err != nil {
-		return fmt.Errorf("parse template: %w", err)
-	}
-
 	indexPath := filepath.Join(dirPath, "index.html")
 	f, err := os.Create(indexPath)
 	if err != nil {
 		return fmt.Errorf("create index.html: %w", err)
 	}
-	defer f.Close() //nolint:errcheck
+	defer f.Close() //nolint:errcheck // Write errors caught by template.Execute
 
-	if err := tmpl.Execute(f, data); err != nil {
+	if err := getHTMLTemplate().Execute(f, data); err != nil {
 		return fmt.Errorf("execute template: %w", err)
 	}
 
