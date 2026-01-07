@@ -57,6 +57,12 @@ and optionally prunes old versions.`,
 		}
 		fmt.Printf("  Updated Release for %s\n", addDist)
 
+		// Generate HTML indexes for browsing
+		if err := r.GenerateHTMLIndexes(); err != nil {
+			return fmt.Errorf("generate HTML indexes: %w", err)
+		}
+		fmt.Println("  Generated HTML index pages")
+
 		return nil
 	},
 }
