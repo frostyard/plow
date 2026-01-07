@@ -8,7 +8,7 @@ Codename: stable
 Architectures: amd64
 Components: main
 Description: Frostyard Debian Repository
-Date: Wed, 07 Jan 2026 17:32:07 UTC
+Date: Wed, 07 Jan 2026 17:39:54 UTC
 MD5Sum:
  b0886e3068c4eaf687608930b5199f81             3951 main/binary-amd64/Packages
  07c45e7eface0c4cfa68e96ac064c3a3             1164 main/binary-amd64/Packages.gz
@@ -23,17 +23,17 @@ SHA256:
  4f61ad7079b30974d5f7c0770118658ac8775edb86540a0d61b10d44cc319834             1200 main/binary-amd64/Packages.xz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmlemJcACgkQTeaiAW5i
-L5c2vxAAoROhsKo3GLtI5nUlcF5xVg+pxt8EzzNVvUcgNbAwPSkVpDDt3t5d7czO
-QVHcm/j5u2ip43HmP8Mh/wM7DvDvGwvrBsIi+7DFWofIiSJal4wf7YoIOUkok4Sn
-J/pGOLt9qx+efeS2DSucHFMP38fRlv4AZpW8yA0a8ApZJPqH3f15H+Fx0FwnvKgw
-g4lLSHULRQvg3vKuJQyQclEAx8yeF1F4UMTBeDWeHkYb8qLFeJvbB7zeuux5qm9J
-NJnOjFSKkK7lz+sy+uVwK/ETNPEd4H6NyiVS9L+gQLe/l/XUuAU0rP6QJGBVSkUY
-Bma0hch0vbDvomV6nuUFbuAL5J9NTh7VWYB3vfh3T4gO7fX4wsZsgn/pkQ+lYAb5
-DF9ZZ1oLP0kX6mbmnS8/eOEHTLyQQ8a0rlYykZhaA1OeFJ7CW0kOepOWQyGQY1p0
-vaKklFVdvvrrppB4tf89fkrUaJ1fTpxwG6JTHK/zDXkLFh9hzq6XUMFdIThbPkxL
-6YN5/nNZRuT/Rg5ITjJDjGJvF4mhmFocr57p69AEwMKHCA87aM6ZmDbgciyqs9fe
-C1L+aPLPQNuh8xIZOXNMDEOoxHONWGLe7JpcYfyD9AXmZQB4CLWm/PWD9VB7Uhmv
-irBQSTAoIyuI/2xiDxrUylDmAxFNfP5dwnF36akfy0A3UlqCPDU=
-=Thz0
+iQIzBAEBCgAdFiEEQyxFLNK39P8bXSMmTeaiAW5iL5cFAmlemmoACgkQTeaiAW5i
+L5ceGxAAkmBFMe82p1ycvHX7Ze9x9i9midUu6anUiJQZUbIpWIu86uaELIwftV2D
+vNvLATMx3UtDH/6Y/vcCxYJTEswJptiCjpHm/YV9RYrHCM6sS1E/Ym4Fv/Lfe4BA
+K0Ivqlj8O+XP/VIg3BQslK9OT8NO0i8YO0clTwrUmEoLcKG3NxxkC6hL941J61VK
+hEeCiGY8RDuA3AANzXQQLIdhTFUc8KTcVyMOcrMWVRNLFW5Ydnmv8HJF/eJfezuK
+LVdXIBR7yjV8oifui8VVpH8WPOpWjL5iGl9LzCXy4UkIkqVCig2k0x2nihk8uhgQ
+OZVtsyVRyZMnbXIiCyD797gWXsgeWvb5vvElUj6nxxHs6njS8awanmcBe5+VdE3l
+d6d0fB0PDczY2ryh6mawHZgviKqvjQJGvm511y7fqe5EQvB3JCI5+UVdEYpA+t/8
+IJb4NaP2+96MV3UHf2LAJaQcjiHkd7k/sWA62YLr9bfQW5MIjmd0crvyN8v+yxLn
+r8ia2qP6kag/nUdWtDZf+f/hgq+DvW6pjtjeQbsXEb52EqmWwbNIbxEgG3Ssuc74
+/mNjrCrna1gJNN95TONQwxAz85ZoNj5v0w8+c1a1fgIWlrr/zps9DORYtjtuMjBZ
+Mq99lnCwAvEckI5KQC6MKQLYTDY/nqKCIs2q64FxqxzfEZi4DVc=
+=4joX
 -----END PGP SIGNATURE-----
